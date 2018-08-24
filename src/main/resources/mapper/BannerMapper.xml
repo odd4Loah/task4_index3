@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lihoo.ssm.dao.BannerMapper">
+  <resultMap id="BaseResultMap" type="com.lihoo.ssm.model.Banner">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="banner" jdbcType="VARCHAR" property="banner" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from banner
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lihoo.ssm.model.Banner">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into banner (id, banner)
+    values (#{id,jdbcType=BIGINT}, #{banner,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lihoo.ssm.model.Banner">
+    update banner
+    set banner = #{banner,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, banner
+    from banner
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, banner
+    from banner
+  </select>
+  <resultMap id="BaseResultMap" type="com.lihoo.ssm.model.Banner">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="banner" jdbcType="VARCHAR" property="banner" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from banner
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lihoo.ssm.model.Banner">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into banner (id, banner)
+    values (#{id,jdbcType=BIGINT}, #{banner,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lihoo.ssm.model.Banner">
+    update banner
+    set banner = #{banner,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, banner
+    from banner
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, banner
+    from banner
+  </select>
+</mapper>

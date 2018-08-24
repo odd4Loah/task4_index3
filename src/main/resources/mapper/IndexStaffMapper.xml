@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lihoo.ssm.dao.IndexStaffMapper">
+  <resultMap id="BaseResultMap" type="com.lihoo.ssm.model.IndexStaff">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="head_img" jdbcType="VARCHAR" property="headImg" />
+    <result column="job" jdbcType="VARCHAR" property="job" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="job_info" jdbcType="VARCHAR" property="jobInfo" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from index_staff
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lihoo.ssm.model.IndexStaff">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into index_staff (id, head_img, job, 
+      name, job_info)
+    values (#{id,jdbcType=BIGINT}, #{headImg,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{jobInfo,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lihoo.ssm.model.IndexStaff">
+    update index_staff
+    set head_img = #{headImg,jdbcType=VARCHAR},
+      job = #{job,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      job_info = #{jobInfo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, head_img, job, name, job_info
+    from index_staff
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, head_img, job, name, job_info
+    from index_staff
+  </select>
+</mapper>

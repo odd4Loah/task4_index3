@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lihoo.ssm.dao.IndexLearnMapper">
+  <resultMap id="BaseResultMap" type="com.lihoo.ssm.model.IndexLearn">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="learn_id" jdbcType="INTEGER" property="learnId" />
+    <result column="learn_img" jdbcType="VARCHAR" property="learnImg" />
+    <result column="learn_keyword" jdbcType="VARCHAR" property="learnKeyword" />
+    <result column="learn_info" jdbcType="VARCHAR" property="learnInfo" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from index_learn
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lihoo.ssm.model.IndexLearn">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into index_learn (id, learn_id, learn_img, 
+      learn_keyword, learn_info)
+    values (#{id,jdbcType=BIGINT}, #{learnId,jdbcType=INTEGER}, #{learnImg,jdbcType=VARCHAR}, 
+      #{learnKeyword,jdbcType=VARCHAR}, #{learnInfo,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lihoo.ssm.model.IndexLearn">
+    update index_learn
+    set learn_id = #{learnId,jdbcType=INTEGER},
+      learn_img = #{learnImg,jdbcType=VARCHAR},
+      learn_keyword = #{learnKeyword,jdbcType=VARCHAR},
+      learn_info = #{learnInfo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, learn_id, learn_img, learn_keyword, learn_info
+    from index_learn
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, learn_id, learn_img, learn_keyword, learn_info
+    from index_learn
+  </select>
+</mapper>

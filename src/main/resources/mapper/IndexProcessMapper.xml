@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lihoo.ssm.dao.IndexProcessMapper">
+  <resultMap id="BaseResultMap" type="com.lihoo.ssm.model.IndexProcess">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="process_info" jdbcType="VARCHAR" property="processInfo" />
+    <result column="arrow_icon" jdbcType="VARCHAR" property="arrowIcon" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from index_process
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lihoo.ssm.model.IndexProcess">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into index_process (id, process_info, arrow_icon
+      )
+    values (#{id,jdbcType=BIGINT}, #{processInfo,jdbcType=VARCHAR}, #{arrowIcon,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lihoo.ssm.model.IndexProcess">
+    update index_process
+    set process_info = #{processInfo,jdbcType=VARCHAR},
+      arrow_icon = #{arrowIcon,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, process_info, arrow_icon
+    from index_process
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, process_info, arrow_icon
+    from index_process
+  </select>
+</mapper>

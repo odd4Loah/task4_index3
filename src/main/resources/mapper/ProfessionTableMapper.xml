@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lihoo.ssm.dao.ProfessionTableMapper">
+  <resultMap id="BaseResultMap" type="com.lihoo.ssm.model.ProfessionTable">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="head_img" jdbcType="VARCHAR" property="headImg" />
+    <result column="profession_name" jdbcType="VARCHAR" property="professionName" />
+    <result column="profession_info" jdbcType="VARCHAR" property="professionInfo" />
+    <result column="profession_sill" jdbcType="VARCHAR" property="professionSill" />
+    <result column="profession_degree" jdbcType="VARCHAR" property="professionDegree" />
+    <result column="profession_grow" jdbcType="VARCHAR" property="professionGrow" />
+    <result column="profession_demand" jdbcType="VARCHAR" property="professionDemand" />
+    <result column="profession_salary1" jdbcType="VARCHAR" property="professionSalary1" />
+    <result column="profession_salary2" jdbcType="VARCHAR" property="professionSalary2" />
+    <result column="profession_salary3" jdbcType="VARCHAR" property="professionSalary3" />
+    <result column="learning_counts" jdbcType="VARCHAR" property="learningCounts" />
+    <result column="attention" jdbcType="VARCHAR" property="attention" />
+    <result column="hover_info" jdbcType="VARCHAR" property="hoverInfo" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from profession_table
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lihoo.ssm.model.ProfessionTable">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into profession_table (id, head_img, profession_name, 
+      profession_info, profession_sill, profession_degree, 
+      profession_grow, profession_demand, profession_salary1, 
+      profession_salary2, profession_salary3, learning_counts, 
+      attention, hover_info)
+    values (#{id,jdbcType=BIGINT}, #{headImg,jdbcType=VARCHAR}, #{professionName,jdbcType=VARCHAR}, 
+      #{professionInfo,jdbcType=VARCHAR}, #{professionSill,jdbcType=VARCHAR}, #{professionDegree,jdbcType=VARCHAR}, 
+      #{professionGrow,jdbcType=VARCHAR}, #{professionDemand,jdbcType=VARCHAR}, #{professionSalary1,jdbcType=VARCHAR}, 
+      #{professionSalary2,jdbcType=VARCHAR}, #{professionSalary3,jdbcType=VARCHAR}, #{learningCounts,jdbcType=VARCHAR}, 
+      #{attention,jdbcType=VARCHAR}, #{hoverInfo,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lihoo.ssm.model.ProfessionTable">
+    update profession_table
+    set head_img = #{headImg,jdbcType=VARCHAR},
+      profession_name = #{professionName,jdbcType=VARCHAR},
+      profession_info = #{professionInfo,jdbcType=VARCHAR},
+      profession_sill = #{professionSill,jdbcType=VARCHAR},
+      profession_degree = #{professionDegree,jdbcType=VARCHAR},
+      profession_grow = #{professionGrow,jdbcType=VARCHAR},
+      profession_demand = #{professionDemand,jdbcType=VARCHAR},
+      profession_salary1 = #{professionSalary1,jdbcType=VARCHAR},
+      profession_salary2 = #{professionSalary2,jdbcType=VARCHAR},
+      profession_salary3 = #{professionSalary3,jdbcType=VARCHAR},
+      learning_counts = #{learningCounts,jdbcType=VARCHAR},
+      attention = #{attention,jdbcType=VARCHAR},
+      hover_info = #{hoverInfo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, head_img, profession_name, profession_info, profession_sill, profession_degree, 
+    profession_grow, profession_demand, profession_salary1, profession_salary2, profession_salary3, 
+    learning_counts, attention, hover_info
+    from profession_table
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, head_img, profession_name, profession_info, profession_sill, profession_degree, 
+    profession_grow, profession_demand, profession_salary1, profession_salary2, profession_salary3, 
+    learning_counts, attention, hover_info
+    from profession_table
+  </select>
+  <resultMap id="BaseResultMap" type="com.lihoo.ssm.model.ProfessionTable">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="head_img" jdbcType="VARCHAR" property="headImg" />
+    <result column="profession_name" jdbcType="VARCHAR" property="professionName" />
+    <result column="profession_info" jdbcType="VARCHAR" property="professionInfo" />
+    <result column="profession_sill" jdbcType="VARCHAR" property="professionSill" />
+    <result column="profession_degree" jdbcType="VARCHAR" property="professionDegree" />
+    <result column="profession_grow" jdbcType="VARCHAR" property="professionGrow" />
+    <result column="profession_demand" jdbcType="VARCHAR" property="professionDemand" />
+    <result column="profession_salary1" jdbcType="VARCHAR" property="professionSalary1" />
+    <result column="profession_salary2" jdbcType="VARCHAR" property="professionSalary2" />
+    <result column="profession_salary3" jdbcType="VARCHAR" property="professionSalary3" />
+    <result column="learning_counts" jdbcType="VARCHAR" property="learningCounts" />
+    <result column="attention" jdbcType="VARCHAR" property="attention" />
+    <result column="hover_info" jdbcType="VARCHAR" property="hoverInfo" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from profession_table
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lihoo.ssm.model.ProfessionTable">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into profession_table (id, head_img, profession_name, 
+      profession_info, profession_sill, profession_degree, 
+      profession_grow, profession_demand, profession_salary1, 
+      profession_salary2, profession_salary3, learning_counts, 
+      attention, hover_info)
+    values (#{id,jdbcType=BIGINT}, #{headImg,jdbcType=VARCHAR}, #{professionName,jdbcType=VARCHAR}, 
+      #{professionInfo,jdbcType=VARCHAR}, #{professionSill,jdbcType=VARCHAR}, #{professionDegree,jdbcType=VARCHAR}, 
+      #{professionGrow,jdbcType=VARCHAR}, #{professionDemand,jdbcType=VARCHAR}, #{professionSalary1,jdbcType=VARCHAR}, 
+      #{professionSalary2,jdbcType=VARCHAR}, #{professionSalary3,jdbcType=VARCHAR}, #{learningCounts,jdbcType=VARCHAR}, 
+      #{attention,jdbcType=VARCHAR}, #{hoverInfo,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lihoo.ssm.model.ProfessionTable">
+    update profession_table
+    set head_img = #{headImg,jdbcType=VARCHAR},
+      profession_name = #{professionName,jdbcType=VARCHAR},
+      profession_info = #{professionInfo,jdbcType=VARCHAR},
+      profession_sill = #{professionSill,jdbcType=VARCHAR},
+      profession_degree = #{professionDegree,jdbcType=VARCHAR},
+      profession_grow = #{professionGrow,jdbcType=VARCHAR},
+      profession_demand = #{professionDemand,jdbcType=VARCHAR},
+      profession_salary1 = #{professionSalary1,jdbcType=VARCHAR},
+      profession_salary2 = #{professionSalary2,jdbcType=VARCHAR},
+      profession_salary3 = #{professionSalary3,jdbcType=VARCHAR},
+      learning_counts = #{learningCounts,jdbcType=VARCHAR},
+      attention = #{attention,jdbcType=VARCHAR},
+      hover_info = #{hoverInfo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, head_img, profession_name, profession_info, profession_sill, profession_degree, 
+    profession_grow, profession_demand, profession_salary1, profession_salary2, profession_salary3, 
+    learning_counts, attention, hover_info
+    from profession_table
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, head_img, profession_name, profession_info, profession_sill, profession_degree, 
+    profession_grow, profession_demand, profession_salary1, profession_salary2, profession_salary3, 
+    learning_counts, attention, hover_info
+    from profession_table
+  </select>
+  <resultMap id="BaseResultMap" type="com.lihoo.ssm.model.ProfessionTable">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="head_img" jdbcType="VARCHAR" property="headImg" />
+    <result column="profession_name" jdbcType="VARCHAR" property="professionName" />
+    <result column="profession_info" jdbcType="VARCHAR" property="professionInfo" />
+    <result column="profession_sill" jdbcType="VARCHAR" property="professionSill" />
+    <result column="profession_degree" jdbcType="VARCHAR" property="professionDegree" />
+    <result column="profession_grow" jdbcType="VARCHAR" property="professionGrow" />
+    <result column="profession_demand" jdbcType="VARCHAR" property="professionDemand" />
+    <result column="profession_salary1" jdbcType="VARCHAR" property="professionSalary1" />
+    <result column="profession_salary2" jdbcType="VARCHAR" property="professionSalary2" />
+    <result column="profession_salary3" jdbcType="VARCHAR" property="professionSalary3" />
+    <result column="learning_counts" jdbcType="VARCHAR" property="learningCounts" />
+    <result column="attention" jdbcType="VARCHAR" property="attention" />
+    <result column="hover_info" jdbcType="VARCHAR" property="hoverInfo" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from profession_table
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lihoo.ssm.model.ProfessionTable">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into profession_table (id, head_img, profession_name, 
+      profession_info, profession_sill, profession_degree, 
+      profession_grow, profession_demand, profession_salary1, 
+      profession_salary2, profession_salary3, learning_counts, 
+      attention, hover_info)
+    values (#{id,jdbcType=BIGINT}, #{headImg,jdbcType=VARCHAR}, #{professionName,jdbcType=VARCHAR}, 
+      #{professionInfo,jdbcType=VARCHAR}, #{professionSill,jdbcType=VARCHAR}, #{professionDegree,jdbcType=VARCHAR}, 
+      #{professionGrow,jdbcType=VARCHAR}, #{professionDemand,jdbcType=VARCHAR}, #{professionSalary1,jdbcType=VARCHAR}, 
+      #{professionSalary2,jdbcType=VARCHAR}, #{professionSalary3,jdbcType=VARCHAR}, #{learningCounts,jdbcType=VARCHAR}, 
+      #{attention,jdbcType=VARCHAR}, #{hoverInfo,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lihoo.ssm.model.ProfessionTable">
+    update profession_table
+    set head_img = #{headImg,jdbcType=VARCHAR},
+      profession_name = #{professionName,jdbcType=VARCHAR},
+      profession_info = #{professionInfo,jdbcType=VARCHAR},
+      profession_sill = #{professionSill,jdbcType=VARCHAR},
+      profession_degree = #{professionDegree,jdbcType=VARCHAR},
+      profession_grow = #{professionGrow,jdbcType=VARCHAR},
+      profession_demand = #{professionDemand,jdbcType=VARCHAR},
+      profession_salary1 = #{professionSalary1,jdbcType=VARCHAR},
+      profession_salary2 = #{professionSalary2,jdbcType=VARCHAR},
+      profession_salary3 = #{professionSalary3,jdbcType=VARCHAR},
+      learning_counts = #{learningCounts,jdbcType=VARCHAR},
+      attention = #{attention,jdbcType=VARCHAR},
+      hover_info = #{hoverInfo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, head_img, profession_name, profession_info, profession_sill, profession_degree, 
+    profession_grow, profession_demand, profession_salary1, profession_salary2, profession_salary3, 
+    learning_counts, attention, hover_info
+    from profession_table
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, head_img, profession_name, profession_info, profession_sill, profession_degree, 
+    profession_grow, profession_demand, profession_salary1, profession_salary2, profession_salary3, 
+    learning_counts, attention, hover_info
+    from profession_table
+  </select>
+  <resultMap id="BaseResultMap" type="com.lihoo.ssm.model.ProfessionTable">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="head_img" jdbcType="VARCHAR" property="headImg" />
+    <result column="profession_name" jdbcType="VARCHAR" property="professionName" />
+    <result column="profession_info" jdbcType="VARCHAR" property="professionInfo" />
+    <result column="profession_sill" jdbcType="VARCHAR" property="professionSill" />
+    <result column="profession_degree" jdbcType="VARCHAR" property="professionDegree" />
+    <result column="profession_grow" jdbcType="VARCHAR" property="professionGrow" />
+    <result column="profession_demand" jdbcType="VARCHAR" property="professionDemand" />
+    <result column="profession_salary1" jdbcType="VARCHAR" property="professionSalary1" />
+    <result column="profession_salary2" jdbcType="VARCHAR" property="professionSalary2" />
+    <result column="profession_salary3" jdbcType="VARCHAR" property="professionSalary3" />
+    <result column="learning_counts" jdbcType="VARCHAR" property="learningCounts" />
+    <result column="attention" jdbcType="VARCHAR" property="attention" />
+    <result column="hover_info" jdbcType="VARCHAR" property="hoverInfo" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from profession_table
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lihoo.ssm.model.ProfessionTable">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into profession_table (id, head_img, profession_name, 
+      profession_info, profession_sill, profession_degree, 
+      profession_grow, profession_demand, profession_salary1, 
+      profession_salary2, profession_salary3, learning_counts, 
+      attention, hover_info)
+    values (#{id,jdbcType=BIGINT}, #{headImg,jdbcType=VARCHAR}, #{professionName,jdbcType=VARCHAR}, 
+      #{professionInfo,jdbcType=VARCHAR}, #{professionSill,jdbcType=VARCHAR}, #{professionDegree,jdbcType=VARCHAR}, 
+      #{professionGrow,jdbcType=VARCHAR}, #{professionDemand,jdbcType=VARCHAR}, #{professionSalary1,jdbcType=VARCHAR}, 
+      #{professionSalary2,jdbcType=VARCHAR}, #{professionSalary3,jdbcType=VARCHAR}, #{learningCounts,jdbcType=VARCHAR}, 
+      #{attention,jdbcType=VARCHAR}, #{hoverInfo,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.lihoo.ssm.model.ProfessionTable">
+    update profession_table
+    set head_img = #{headImg,jdbcType=VARCHAR},
+      profession_name = #{professionName,jdbcType=VARCHAR},
+      profession_info = #{professionInfo,jdbcType=VARCHAR},
+      profession_sill = #{professionSill,jdbcType=VARCHAR},
+      profession_degree = #{professionDegree,jdbcType=VARCHAR},
+      profession_grow = #{professionGrow,jdbcType=VARCHAR},
+      profession_demand = #{professionDemand,jdbcType=VARCHAR},
+      profession_salary1 = #{professionSalary1,jdbcType=VARCHAR},
+      profession_salary2 = #{professionSalary2,jdbcType=VARCHAR},
+      profession_salary3 = #{professionSalary3,jdbcType=VARCHAR},
+      learning_counts = #{learningCounts,jdbcType=VARCHAR},
+      attention = #{attention,jdbcType=VARCHAR},
+      hover_info = #{hoverInfo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, head_img, profession_name, profession_info, profession_sill, profession_degree, 
+    profession_grow, profession_demand, profession_salary1, profession_salary2, profession_salary3, 
+    learning_counts, attention, hover_info
+    from profession_table
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, head_img, profession_name, profession_info, profession_sill, profession_degree, 
+    profession_grow, profession_demand, profession_salary1, profession_salary2, profession_salary3, 
+    learning_counts, attention, hover_info
+    from profession_table
+  </select>
+</mapper>
